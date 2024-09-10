@@ -143,6 +143,7 @@ in
     pciutils
     pinentry-gtk2
     pipewire
+    qemu
     sqlite
     vim
     wget
