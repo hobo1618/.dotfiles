@@ -123,7 +123,6 @@ in
   # Install firefox.
   programs.firefox.enable = true;
 
-
   nixpkgs.config.allowUnfree = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -144,6 +143,7 @@ in
     pciutils
     pinentry-gtk2
     pipewire
+    sqlite
     vim
     wget
     xclip
@@ -181,4 +181,3 @@ in
   system.stateVersion = "24.05"; # Did you read the comment?
 
 }
-

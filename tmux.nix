@@ -117,6 +117,7 @@ in
     extraConfig = ''
       set -g default-terminal "tmux-256color"
       set -ag terminal-overrides ",xterm-256color:RGB"
+      set-option -g default-command "exec fish"
 
       set-option -g prefix C-a
       unbind-key C-b
@@ -127,7 +128,7 @@ in
       # Open new split at cwd of current split
       unbind v
       unbind h
-      bind h split-window -h -c "#{pane_current_path}"
+      bind s split-window -h -c "#{pane_current_path}"
       bind v split-window -v -c "#{pane_current_path}"
 
       # Use vim keybindings in copy mode
@@ -160,4 +161,3 @@ in
     '';
   };
 }
-

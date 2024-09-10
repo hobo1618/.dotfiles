@@ -11,9 +11,8 @@
     };
     functions.fish_user_key_bindings = ''
       fish_default_key_bindings
-      bind \cn backward-search-history
-      bind \cp forward-search-history
+      bind \cn history-search-forward
+      bind \cp history-search-backward
     '';
   };
 }
-

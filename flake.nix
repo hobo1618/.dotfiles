@@ -13,7 +13,8 @@
       system = "x86_64-linux";
       lib = nixpkgs.lib;
       pkgs = nixpkgs.legacyPackages.${system};
-    in {
+    in
+    {
       nixosConfigurations = {
         nixos = lib.nixosSystem {
           inherit system;
@@ -23,11 +24,10 @@
       homeConfigurations = {
         willh = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-	  extraSpecialArgs = {inherit inputs;};
+          extraSpecialArgs = { inherit inputs; };
           modules = [ ./home.nix ];
         };
       };
     };
 }
-
 
