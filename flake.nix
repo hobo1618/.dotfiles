@@ -2,8 +2,8 @@
   description = "Main Config";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-24.05";
-    home-manager.url = "github:nix-community/home-manager/release-24.05";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager/unstable";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixvim.url = "github:hobo1618/nixvim";
   };
@@ -30,4 +30,3 @@
       };
     };
 }
-
