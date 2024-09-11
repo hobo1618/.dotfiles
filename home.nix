@@ -43,8 +43,17 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
-  
+
   programs.ripgrep.enable = true;
+  programs.git = {
+    enable = true;
+    userName = "hobo1618";
+    userEmail = "hobdenw@gmail.com";
+    extraConfig = {
+      init.defaultBranch = "main";
+      safe.directory = "/home/willh/.dotfiles";
+    };
+  };
 
   #  programs.tmux = {
   #    enable = true;
