@@ -8,6 +8,9 @@
       e = "exit";
       vim = "nvim";
       ls = "eza";
+      ga = "git add";
+      gc = "git commit -m";
+      gp = "git push";
     };
     functions.fish_user_key_bindings = ''
       fish_default_key_bindings

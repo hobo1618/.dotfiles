@@ -43,6 +43,8 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
+  
+  programs.ripgrep.enable = true;
 
   #  programs.tmux = {
   #    enable = true;
