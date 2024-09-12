@@ -140,6 +140,7 @@ in
     neovim
     nerdfonts
     nodePackages.vercel
+    nix-prefetch-github
     nushell
     pciutils
     pinentry-gtk2
