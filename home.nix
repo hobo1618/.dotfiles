@@ -55,6 +55,8 @@
     };
   };
 
+  programs.bun.enable = true;
+
   #  programs.tmux = {
   #    enable = true;
   #    extraConfig = ''

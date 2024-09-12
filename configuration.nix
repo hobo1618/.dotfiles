@@ -139,6 +139,7 @@ in
     lf
     neovim
     nerdfonts
+    nodePackages.vercel
     nushell
     pciutils
     pinentry-gtk2
