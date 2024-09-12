@@ -25,6 +25,7 @@
   # environment.
   home.packages = with pkgs; [
     tmux
+    nodePackages.nodejs
     nushell
     inputs.nixvim.packages.${pkgs.system}.default
     eza
