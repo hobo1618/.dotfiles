@@ -150,6 +150,7 @@ in
     pipx
     poetry
     python3
+    python313
     sqlite
     unzip
     vim
