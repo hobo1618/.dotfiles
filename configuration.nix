@@ -130,6 +130,7 @@ in
     alacritty
     blueman
     fish
+    gcc9
     gh
     ghostscript
     git
