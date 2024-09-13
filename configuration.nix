@@ -149,6 +149,7 @@ in
     pipewire
     pipx
     poetry
+    pyenv
     python3
     python3Packages.setuptools
     python312
