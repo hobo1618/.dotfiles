@@ -135,6 +135,7 @@ in
     ghostscript
     git
     gnomeExtensions.paperwm
+    gnumake
     gnupg
     google-chrome
     imagemagick
