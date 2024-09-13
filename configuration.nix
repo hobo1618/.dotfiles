@@ -147,6 +147,8 @@ in
     pciutils
     pinentry-gtk2
     pipewire
+    pipx
+    python3
     sqlite
     unzip
     vim
