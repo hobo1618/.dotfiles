@@ -131,6 +131,7 @@ in
     blueman
     fish
     gh
+    ghostscript
     git
     gnomeExtensions.paperwm
     gnupg
