@@ -17,5 +17,8 @@
       bind \cn history-search-forward
       bind \cp history-search-backward
     '';
+    shellInit = ''
+      set -Ux fish_user_paths /home/willh/.local/bin $fish_user_paths
+    '';
   };
 }

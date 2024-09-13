@@ -47,8 +47,6 @@ in
   };
 
   environment.etc."keyd/default.conf".text = keydConfig;
-  environment.variables.PATH = "${config.environment.PATH}:/home/willh/.local/bin";
-
 
   # Enable networking
   networking.networkmanager.enable = true;
