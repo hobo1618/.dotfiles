@@ -146,6 +146,7 @@ in
     pinentry-gtk2
     pipewire
     sqlite
+    unzip
     vim
     wget
     xclip
