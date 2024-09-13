@@ -148,6 +148,7 @@ in
     pinentry-gtk2
     pipewire
     pipx
+    poetry
     python3
     sqlite
     unzip
