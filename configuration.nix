@@ -135,6 +135,7 @@ in
     gnomeExtensions.paperwm
     gnupg
     google-chrome
+    imagemagick
     keyd
     lf
     neovim
