@@ -139,6 +139,7 @@ in
     gnupg
     google-chrome
     imagemagick
+    jq
     keyd
     lf
     neovim
