@@ -24,9 +24,10 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    tmux
+    docker
     nodePackages.nodejs
     nushell
+    tmux
     inputs.nixvim.packages.${pkgs.system}.default
     eza
     quickemu
