@@ -320,11 +320,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1726499290,
-        "narHash": "sha256-v4jwHoi02znv+3awAa3qSiGHFhPq4XKzJXjrXkA2z+4=",
+        "lastModified": 1726500324,
+        "narHash": "sha256-+u0/gOkb2oYnvqOmfrd7KN1AV2PwIRrODPqfLukJZgg=",
         "owner": "hobo1618",
         "repo": "nixvim",
-        "rev": "d3f59c9fd757ef0fb6487088198128545c3df9f2",
+        "rev": "21121e42f1c19476939e2bcf81fa540f79d9ba40",
         "type": "github"
       },
       "original": {
