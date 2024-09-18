@@ -162,6 +162,7 @@ in
     vim
     wget
     xclip
+    zoom-us
   ];
 
 
