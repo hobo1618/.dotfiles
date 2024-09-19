@@ -30,6 +30,7 @@
     marp-cli
     nodePackages.nodejs
     nushell
+    poppler_utils
     quickemu
     tldr
     tmux
