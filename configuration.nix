@@ -135,6 +135,7 @@ in
     ghostscript
     git
     gnomeExtensions.paperwm
+    gnome.gnome-tweaks
     gnumake
     gnupg
     google-chrome
