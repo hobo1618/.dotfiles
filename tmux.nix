@@ -135,10 +135,10 @@ in
       set-window-option -g mode-keys vi
 
       # Vim-style pane movement
-      # bind-key -T prefix h select-pane -L
-      # bind-key -T prefix j select-pane -D
-      # bind-key -T prefix k select-pane -U
-      # bind-key -T prefix l select-pane -R
+      bind-key -T prefix h select-pane -L
+      bind-key -T prefix j select-pane -D
+      bind-key -T prefix k select-pane -U
+      bind-key -T prefix l select-pane -R
 
       bind-key -T prefix S choose-session
 
