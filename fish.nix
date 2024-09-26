@@ -20,5 +20,8 @@
     shellInit = ''
       set -Ux fish_user_paths /home/willh/.local/bin $fish_user_paths
     '';
+    shellAliases = {
+      secret_source = "source ~/.dotfiles/.secrets.fish";
+    };
   };
 }
