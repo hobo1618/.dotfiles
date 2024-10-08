@@ -150,6 +150,7 @@ in
     nushell
     pciutils
     pinentry-gtk2
+    pinentry-curses
     pipewire
     pipx
     poetry
