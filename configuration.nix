@@ -72,12 +72,12 @@ in
     hyprland.enable = true; # enable Hyprland
   };
 
-  services.pcscd.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-    pinentryPackage = pkgs.pinentry-curses;
-  };
+  #  services.pcscd.enable = true;
+  #  programs.gnupg.agent = {
+  #    enable = true;
+  #    enableSSHSupport = true;
+  #    pinentryPackage = pkgs.pinentry-curses;
+  #  };
 
   environment.shells = with pkgs; [ fish ];
   users.defaultUserShell = pkgs.fish;
@@ -156,6 +156,7 @@ in
     nix-prefetch-github
     nushell
     pciutils
+    pinentry-gtk2
     pinentry-curses
     pipewire
     pipx

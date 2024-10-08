@@ -20,6 +20,7 @@
     shellInit = ''
       set -Ux fish_user_paths /home/willh/.local/bin $fish_user_paths
       set -x GNUPGHOME ~/.gnupg
+      set -x PINENTRY_USER_DATA "USE_CURSES=1"
       set -x GPG_TTY (tty)
       source ~/.dotfiles/.secrets.fish
     '';
