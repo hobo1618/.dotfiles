@@ -76,7 +76,7 @@ in
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
-    pinentryPackage = "curses";
+    pinentryPackage = pkgs.pinentry-curses;
   };
 
   environment.shells = with pkgs; [ fish ];
