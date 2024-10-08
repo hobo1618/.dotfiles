@@ -149,7 +149,7 @@ in
     nix-prefetch-github
     nushell
     pciutils
-    pinentry-curses
+    pinentry-qt
     pipewire
     pipx
     poetry
