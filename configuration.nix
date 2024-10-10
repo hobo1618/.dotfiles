@@ -72,13 +72,6 @@ in
     hyprland.enable = true; # enable Hyprland
   };
 
-  #  services.pcscd.enable = true;
-  #  programs.gnupg.agent = {
-  #    enable = true;
-  #    enableSSHSupport = true;
-  #    pinentryPackage = pkgs.pinentry-curses;
-  #  };
-
   environment.shells = with pkgs; [ fish ];
   users.defaultUserShell = pkgs.fish;
   programs.fish.enable = true;
@@ -144,7 +137,6 @@ in
     gnomeExtensions.paperwm
     gnome.gnome-tweaks
     gnumake
-    gnupg
     google-chrome
     imagemagick
     jq
@@ -156,8 +148,6 @@ in
     nix-prefetch-github
     nushell
     pciutils
-    pinentry-gtk2
-    pinentry-curses
     pipewire
     pipx
     poetry
