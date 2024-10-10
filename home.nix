@@ -30,7 +30,6 @@
     marp-cli
     nodePackages.nodejs
     nushell
-    pass
     poppler_utils
     quickemu
     screenkey
