@@ -33,6 +33,7 @@
     pass
     poppler_utils
     quickemu
+    screenkey
     tldr
     tmux
     yarn
