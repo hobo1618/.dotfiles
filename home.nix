@@ -21,7 +21,7 @@
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
-  options.programs.gnupg.agent = {
+  services.gpg-agent = {
     enable = true;
     pinentryPackage = pkgs.pinentry-curses;
   };
@@ -36,6 +36,7 @@
     marp-cli
     nodePackages.nodejs
     nushell
+    pass
     pinentry-curses
     poppler_utils
     quickemu
