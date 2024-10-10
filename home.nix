@@ -26,6 +26,7 @@
   home.packages = with pkgs; [
     docker
     eza
+    gnupg
     inputs.nixvim.packages.${pkgs.system}.default
     marp-cli
     nodePackages.nodejs
