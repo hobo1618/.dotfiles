@@ -22,6 +22,7 @@
       set -x GNUPGHOME ~/.gnupg
       set -x PINENTRY_USER_DATA "USE_CURSES=1"
       set -x GPG_TTY (tty)
+      set -x EDITOR vim
       source ~/.dotfiles/.secrets.fish
     '';
   };
