@@ -72,11 +72,6 @@ in
     hyprland.enable = true; # enable Hyprland
   };
 
-  services.gpg-agent.enable = {
-    enable = true;
-    pinentryPackage = pkgs.pinentry-curses;
-  };
-
   #  services.pcscd.enable = true;
   #  programs.gnupg.agent = {
   #    enable = true;

@@ -21,6 +21,14 @@
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
+
+  programs.gpg.enable = true;
+  services.gpg-agent.enable = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-curses;
+  };
+
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
