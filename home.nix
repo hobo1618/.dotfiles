@@ -34,6 +34,7 @@
     poppler_utils
     quickemu
     screenkey
+    slop
     tldr
     tmux
     yarn
