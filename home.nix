@@ -21,6 +21,11 @@
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
+  options.programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-curses;
+  };
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
@@ -31,6 +36,7 @@
     marp-cli
     nodePackages.nodejs
     nushell
+    pinentry-curses
     poppler_utils
     quickemu
     screenkey
