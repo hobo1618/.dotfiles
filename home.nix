@@ -41,7 +41,8 @@
     nodePackages.nodejs
     nushell
     pass
-    passff-host
+    #    passff-host
+    (firefox.override { extraNativeMessagingHosts = [ passff-host ]; })
     pinentry-curses
     poppler_utils
     quickemu
