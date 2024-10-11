@@ -27,7 +27,7 @@
   };
 
   home.sessionVariables = {
-    EDITOR = "vim";
+    EDITOR = "nvim";
   };
 
   # The home.packages option allows you to install Nix packages into your
@@ -41,6 +41,7 @@
     nodePackages.nodejs
     nushell
     pass
+    passff-host
     pinentry-curses
     poppler_utils
     quickemu
