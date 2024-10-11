@@ -144,10 +144,11 @@ in
     lf
     neovim
     nerdfonts
-    (firefox.override { extraNativeMessagingHosts = [ passff-host ]; })
     nodePackages.vercel
     nix-prefetch-github
     nushell
+    passff-host
+    (firefox.override { extraNativeMessagingHosts = [ passff-host ]; })
     pciutils
     pipewire
     pipx
