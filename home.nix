@@ -23,7 +23,8 @@
 
   services.gpg-agent = {
     enable = true;
-    pinentryPackage = pkgs.pinentry-curses;
+    #   pinentryPackage = pkgs.pinentry-curses;
+    pinentryPackage = pkgs.pinentry-all;
   };
 
   home.sessionVariables = {
@@ -43,8 +44,8 @@
     pass
     #    passff-host
     #   (firefox.override { extraNativeMessagingHosts = [ passff-host ]; })
-    pinentry-curses
-    pinentry
+    #   pinentry-curses
+    pinentry-all
     poppler_utils
     quickemu
     screenkey
