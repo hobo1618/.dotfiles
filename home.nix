@@ -44,6 +44,7 @@
     #    passff-host
     #   (firefox.override { extraNativeMessagingHosts = [ passff-host ]; })
     pinentry-curses
+    pinentry-gtk2
     poppler_utils
     quickemu
     screenkey

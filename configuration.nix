@@ -121,7 +121,10 @@ in
   };
 
   # Install firefox.
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+    package = with pkgs; (firefox.override { extraNativeMessagingHosts = [ passff-host ]; });
+  };
 
   nixpkgs.config.allowUnfree = true;
   # List packages installed in system profile. To search, run:
@@ -147,8 +150,6 @@ in
     nodePackages.vercel
     nix-prefetch-github
     nushell
-    passff-host
-    (firefox.override { extraNativeMessagingHosts = [ passff-host ]; })
     pciutils
     pipewire
     pipx
