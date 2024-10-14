@@ -50,6 +50,7 @@
     quickemu
     screenkey
     slop
+    tectonic
     tldr
     tmux
     yarn
