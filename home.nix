@@ -81,6 +81,8 @@
 
   programs.bun.enable = true;
 
+  programs.pandoc.enable = true;
+
   #  programs.tmux = {
   #    enable = true;
   #    extraConfig = ''

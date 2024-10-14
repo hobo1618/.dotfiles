@@ -51,9 +51,9 @@ in
 {
   # TODO: what if this is defined in another file? Merge it!
   programs.fish = {
-    shellInit = ''
+   shellInit = ''
       fish_add_path ${t-smart-manager}/share/tmux-plugins/t-smart-tmux-session-manager/bin/
-    '';
+   '';
   };
 
   home.packages = with pkgs; [
