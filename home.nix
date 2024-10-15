@@ -31,7 +31,9 @@
     EDITOR = "nvim";
   };
 
-  pkgs.config.allowUnfree = true;
+  # pkgs.config.allowUnfree = true;
+
+  nixpkgs.config.allowUnfree = true;
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
