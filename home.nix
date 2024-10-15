@@ -42,12 +42,10 @@
     nodePackages.nodejs
     nushell
     pass
-    #    passff-host
-    #   (firefox.override { extraNativeMessagingHosts = [ passff-host ]; })
-    #   pinentry-curses
     pinentry-all
     poppler_utils
     quickemu
+    reaper
     screenkey
     slop
     tectonic
