@@ -148,6 +148,7 @@ in
     gnomeExtensions.paperwm
     gnome.gnome-tweaks
     gnumake
+    go
     google-chrome
     imagemagick
     jq
