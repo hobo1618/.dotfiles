@@ -140,6 +140,7 @@ in
   environment.systemPackages = with pkgs; [
     alacritty
     blueman
+    deno
     fish
     gcc9
     gh
