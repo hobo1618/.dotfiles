@@ -6,6 +6,18 @@
 let
   keyd = pkgs.callPackage ./keyd { };
   keydConfig = builtins.readFile ./keyd/keymaps.conf;
+  # Customize Neo4j package
+  neo4j_custom = pkgs.neo4j.overrideAttrs (oldAttrs: {
+    installPhase = ''
+      # Apply the necessary changes to the config files for runtime and logs
+      echo "dbms.directories.data=/tmp/neo4j/data" >> conf/neo4j.conf
+      echo "dbms.directories.logs=/tmp/neo4j/logs" >> conf/neo4j.conf
+      echo "dbms.directories.run=/tmp/neo4j/run" >> conf/neo4j.conf
+
+      mkdir -p $out/share/neo4j
+      cp -R * $out/share/neo4j
+    '';
+  });
 in
 {
   imports =
@@ -155,7 +167,7 @@ in
     jq
     keyd
     lf
-    neo4j
+    neo4j_custom
     neo4j-desktop
     neovim
     nerdfonts
