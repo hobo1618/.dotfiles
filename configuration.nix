@@ -131,7 +131,7 @@ in
   services.neo4j = {
     enable = true;
     directories = {
-      home = "/home/willh/neo4j/"; # Set your desired home directory
+      home = "/home/willh/neo4j"; # Set your desired home directory
     };
   };
   # Install firefox.
