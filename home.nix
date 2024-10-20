@@ -43,8 +43,6 @@
     gnupg
     inputs.nixvim.packages.${pkgs.system}.default
     marp-cli
-    neo4j
-    neo4j-desktop
     nodePackages.nodejs
     nushell
     pass

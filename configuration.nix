@@ -155,6 +155,8 @@ in
     jq
     keyd
     lf
+    neo4j
+    neo4j-desktop
     neovim
     nerdfonts
     nodePackages.vercel
