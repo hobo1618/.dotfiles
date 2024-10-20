@@ -130,7 +130,7 @@ in
 
   services.neo4j = {
     enable = true;
-    directories.data = "~/neo4j/data";
+    directories.data = "/home/willh/neo4j/data";
   };
   # Install firefox.
   programs.firefox = {
