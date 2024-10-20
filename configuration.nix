@@ -128,6 +128,10 @@ in
     };
   };
 
+  services.neo4j = {
+    enable = true;
+    directories.data = "~/neo4j/data";
+  };
   # Install firefox.
   programs.firefox = {
     enable = true;
