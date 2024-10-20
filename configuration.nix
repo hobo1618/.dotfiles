@@ -128,7 +128,6 @@ in
     };
   };
 
-  services.neo4j.enable = true;
   # Install firefox.
   programs.firefox = {
     enable = true;
