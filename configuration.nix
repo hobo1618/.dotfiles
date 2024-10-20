@@ -132,6 +132,7 @@ in
     enable = true;
     directories = {
       home = "/home/willh/neo4j"; # Set your desired home directory
+      logs = "/home/willh/neo4j/logs";
     };
   };
   # Install firefox.
