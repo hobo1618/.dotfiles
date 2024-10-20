@@ -23,6 +23,7 @@
       set -x PINENTRY_USER_DATA "USE_CURSES=1"
       set -x GPG_TTY (tty)
       set -x EDITOR vim
+      set -x NEO4J_HOME ~/.config/neo4j
       source ~/.dotfiles/.secrets.fish
     '';
   };
