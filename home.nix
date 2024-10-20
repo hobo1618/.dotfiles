@@ -86,8 +86,6 @@
 
   programs.pandoc.enable = true;
 
-  services.neo4j.enable = true;
-
   #  programs.tmux = {
   #    enable = true;
   #    extraConfig = ''
