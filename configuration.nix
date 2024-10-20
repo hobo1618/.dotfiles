@@ -128,10 +128,7 @@ in
     };
   };
 
-  services.neo4j = {
-    enable = true;
-    directories.data = "/home/willh/neo4j/data";
-  };
+  services.neo4j.enable = true;
   # Install firefox.
   programs.firefox = {
     enable = true;
@@ -159,7 +156,6 @@ in
     jq
     keyd
     lf
-    neo4j
     neo4j-desktop
     neovim
     nerdfonts
