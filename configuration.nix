@@ -49,6 +49,7 @@ in
 
   systemd.tmpfiles.rules = [
     "d /var/lib/docker/volumes/falkordb_data 0755 root docker - -"
+    "f /var/run/docker.sock 0660 root docker - -"
   ];
 
   environment.etc."keyd/default.conf".text = keydConfig;
