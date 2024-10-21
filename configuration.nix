@@ -176,6 +176,7 @@ in
     python3Packages.setuptools
     python312
     python313
+    redis
     sqlite
     unzip
     vim
