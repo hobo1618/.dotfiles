@@ -122,6 +122,9 @@ in
 
   virtualisation.docker = {
     enable = true;
+    daemon.settings = {
+      data-root = "/var/lib/docker";
+    };
     rootless = {
       enable = false;
       setSocketVariable = true;
