@@ -119,7 +119,7 @@ in
   users.users.willh = {
     isNormalUser = true;
     description = "Will Hobden";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       #  thunderbird
     ];
