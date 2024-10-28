@@ -54,7 +54,7 @@
     slop
     tectonic
     tldr
-    tmux
+    # tmux
     yarn
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
