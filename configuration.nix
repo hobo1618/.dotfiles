@@ -17,6 +17,7 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # keyd
   systemd.services = {
     # https://github.com/NixOS/nixpkgs/issues/59603#issuecomment-1356844284
     NetworkManager-wait-online.enable = false;
@@ -125,11 +126,18 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    alacritty
+    fish
+    vim 
     wget
     git
     keyd
   ];
+
+
+  environment.shells = with pkgs; [ fish ];
+  users.defaultUserShell = pkgs.fish;
+  programs.fish.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
