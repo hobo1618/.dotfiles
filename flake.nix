@@ -21,12 +21,12 @@
           modules = [ ./configuration.nix ];
         };
       };
-#      homeConfigurations = {
- #       willh = home-manager.lib.homeManagerConfiguration {
-  #        inherit pkgs;
-   #       extraSpecialArgs = { inherit inputs; };
-    #      modules = [ ./home.nix ];
-     #   };
-  #    };
+      homeConfigurations = {
+        willh = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { inherit inputs; };
+          modules = [ ./home.nix ];
+        };
+      };
     };
 }

@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "sat"
+version = "0.1.0"
+description = "scripts for processing SAT questions"
+authors = ["hobo1618 <hobdenw@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+openai = "^1.51.0"
+pydantic = "^2.9.2"
+pillow = "^10.4.0"
+pyyaml = "^6.0.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

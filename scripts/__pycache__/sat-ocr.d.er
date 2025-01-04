@@ -1,0 +1,97 @@
+##[pylyzer] failed /home/willh/.dotfiles/scripts/sat-ocr.py 1734681750 6419
+.base64 = pyimport "base64"
+
+.os = pyimport "os"
+
+.random = pyimport "random"
+
+.string = pyimport "string"
+
+.___v_desugar_1 = pyimport "<failure>"
+.<failure> = pyimport "<failure>"
+.OpenAI: Never
+.___v_desugar_2 = pyimport "<failure>"
+
+.BaseModel: Never
+.___v_desugar_3 = pyimport "enum"
+.enum = pyimport "enum"
+.Enum: {enum.Enum}
+.___v_desugar_4 = pyimport "typing"
+.typing = pyimport "typing"
+.Optional: {typing.Optional}
+.argparse = pyimport "argparse"
+
+.re = pyimport "re"
+
+.api_key: NoneType or Str
+
+.client: Never
+.parse_filename: (filename: Str) -> Dict!({{"version"}: Int, {"module"}: {"UNKNOWN"}, {"month"}: Int, {"year"}: Int, {"administered"}: Never})
+.validate_png: |Type_256 <: Str|(file_path: Type_256) -> Type_256
+.get_parent_directory_name: (file_path: PathLike) -> Str
+.Test: ClassType
+.Test <: enum.Enum
+.Test.MATH: {"Math"}
+.Test.READING: {"Reading"}
+
+.Difficulty: ClassType
+.Difficulty <: enum.Enum
+.Difficulty.EASY: {"Easy"}
+.Difficulty.MEDIUM: {"Medium"}
+.Difficulty.HARD: {"Hard"}
+
+.Module: ClassType
+.Module <: enum.Enum
+.Module.STANDARD: {"Standard"}
+.Module.LOWER: {"Lower"}
+.Module.UPPER: {"Upper"}
+
+.Administered: ClassType
+.Administered <: enum.Enum
+.Administered.US: {"US"}
+.Administered.INT: {"INT"}
+
+.Question: ClassType
+.Question <: Never
+.Question.reasoning: Never
+.Question.skills: Never
+.Question.content: Str
+.Question.module: Never
+.Question.administered: Never
+.Question.question_number: Never
+.Question.has_figure: Bool
+sat-ocr = pyimport "sat-ocr"
+.Question.difficulty: .Difficulty
+.Question.source_id: Str
+.Question.domain: Never
+.Question.multiple_choice: Never
+.Question.id: Str
+.Question.test: .Test
+.Question.figure_url: Never
+.Question.tags: List!(Str, _: Nat)
+.Question.rationale: Never
+
+.Questions: ClassType
+.Questions <: Never
+.Questions.num_questions: Int
+.Questions.questions: List!(sat-ocr.Question, _: Nat)
+
+.encode_image: (image_path: PathLike) -> NoneType
+.generate_random_id: () -> Str
+.read_system_prompt: (prompt_path: PathLike) -> NoneType
+.system_prompt_path: {"/home/willh/Documents/askerra/vault/system-prompt-2.md"}
+.user_text_path: {"/home/willh/Documents/askerra/vault/user-text.md"}
+.base_output_path: {"/home/willh/Documents/askerra/vault/sat/tests"}
+.parser: argparse.ArgumentParser!
+
+.args: Obj
+.image_path: Never
+
+.system_prompt: NoneType
+.base64_image: NoneType
+.messages: List!(Dict!({{"content"}: List!(Dict!({{"type"}: {"text"}, {"text"}: Str}) or Dict!({{"image_url"}: Dict!({{"url"}: Str}), {"type"}: {"image_url"}}), 3), {"role"}: {"user"}}) or Dict!({{"role"}: {"system"}, {"content"}: NoneType}), 2)
+.response: Never
+.response_data: Never
+
+
+

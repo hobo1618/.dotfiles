@@ -1,0 +1,25 @@
+##[pylyzer] failed /home/willh/.dotfiles/scripts/python/scripts/compile-test.py 1735561866 4732
+.yaml = pyimport "yaml"
+
+.___v_desugar_1 = pyimport "pathlib"
+.pathlib = pyimport "pathlib"
+.Path: {pathlib.Path}
+.___v_desugar_2 = pyimport "enum"
+.enum = pyimport "enum"
+.Enum: {enum.Enum}
+.Module: ClassType
+.Module <: enum.Enum
+.Module.STANDARD: {"Standard"}
+.Module.LOWER: {"Lower"}
+.Module.UPPER: {"Upper"}
+
+.Test: ClassType
+.Test <: enum.Enum
+.Test.MATH: {"Math"}
+.Test.READING: {"Reading"}
+.Test.FULL: {"Full"}
+
+.search_and_sort_questions: (directory: Str, test_id: Obj, output_file: PathLike := PathLike) -> NoneType
+.remove_rationale_section: (body: Str) -> Str
+.remove_question_header: (body: Str, question_id: Obj) -> Str
+
