@@ -81,6 +81,7 @@
     slop
     tectonic
     tldr
+    texliveTeTeX
     # tmux
     webcamoid
     yarn
