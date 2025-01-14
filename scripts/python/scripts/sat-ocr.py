@@ -21,11 +21,13 @@ client = OpenAI(api_key=api_key)
 
 
 # Function to check if the file is a valid .png file
-def validate_png(file_path):
+def validate_image(file_path):
     if not os.path.isfile(file_path):
-        raise argparse.ArgumentTypeError(f"no {file_path}.")
-    if not file_path.lower().endswith(".png"):
-        raise argparse.ArgumentTypeError(f"{file_path} not .png.")
+        raise argparse.ArgumentTypeError(f"{file_path} does not exist.")
+    if not file_path.lower().endswith((".jpg", ".png")):
+        raise argparse.ArgumentTypeError(
+            f"{file_path} is not a valid .jpg or .png file."
+        )
     return file_path
 
 
@@ -169,7 +171,7 @@ def read_system_prompt(prompt_path):
 parser = argparse.ArgumentParser(description="Process a .png file.")
 parser.add_argument(
     "file",
-    type=validate_png,
+    type=validate_image,
     help="Path to the .png file to be processed.",
 )
 

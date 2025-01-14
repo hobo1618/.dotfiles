@@ -21,11 +21,13 @@ client = OpenAI(api_key=api_key)
 
 
 # Function to check if the file is a valid .png file
-def validate_png(file_path):
+def validate_image(file_path):
     if not os.path.isfile(file_path):
-        raise argparse.ArgumentTypeError(f"no {file_path}.")
-    if not file_path.lower().endswith(".jpg"):
-        raise argparse.ArgumentTypeError(f"{file_path} not .jpg.")
+        raise argparse.ArgumentTypeError(f"{file_path} does not exist.")
+    if not file_path.lower().endswith((".jpg", ".png")):
+        raise argparse.ArgumentTypeError(
+            f"{file_path} is not a valid .jpg or .png file."
+        )
     return file_path
 
 
@@ -99,7 +101,16 @@ def parse_filename(filename: str):
     match = re.match(pattern, filename)
 
     if not match:
-        raise ValueError(f"Filename doesnt match expected format: {filename}")
+        return {
+            "year": None,
+            "month": None,
+            "administered": None,
+            "version": None,
+            "module": None,
+            "test": None,
+            "test_id": None,
+            "question_number": None,
+        }
 
     year, month, region, version, module_code, question_number = match.groups()
 
@@ -166,7 +177,7 @@ def read_system_prompt(prompt_path):
 parser = argparse.ArgumentParser(description="Process a .png file.")
 parser.add_argument(
     "file",
-    type=validate_png,
+    type=validate_image,
     help="Path to the .png file to be processed.",
 )
 
@@ -183,7 +194,7 @@ filename = get_filename(image_path)
 
 parsed_data = parse_filename(filename)
 
-test = parsed_data["test"].lower()
+test = parsed_data["test"].lower() if parsed_data["test"] else "math"
 
 system_prompt_path = f"{base_prompt_path}/{test}.md"
 
