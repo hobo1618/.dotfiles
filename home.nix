@@ -78,6 +78,7 @@
     quickemu
     reaper
     screenkey
+    sioyek
     slop
     tectonic
     tldr
