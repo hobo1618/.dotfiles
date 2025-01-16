@@ -82,7 +82,7 @@
     slop
     tectonic
     tldr
-    # texliveTeTeX
+    texliveSmall # texliveTeTeX
     (texlive.withPackages (ps: [ ps.enumitem ]))
     # tmux
     webcamoid
