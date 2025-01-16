@@ -85,7 +85,7 @@
     tldr
     (texlive.withPackages (ps: [
       ps.scheme-full
-      ps.enumitem
+      # ps.enumitem
     ]))
     # tmux
     webcamoid
