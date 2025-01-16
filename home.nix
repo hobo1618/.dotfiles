@@ -82,8 +82,7 @@
     slop
     tectonic
     tldr
-    texliveSmall # texliveTeTeX
-    (texlive.withPackages (ps: [ ps.enumitem ]))
+    (texlive.withPackages (ps: [ ps.scheme-full ]))
     # tmux
     webcamoid
     yarn
