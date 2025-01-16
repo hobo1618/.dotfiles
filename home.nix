@@ -77,6 +77,7 @@
     poppler_utils
     quickemu
     reaper
+    rubber
     screenkey
     sioyek
     slop
