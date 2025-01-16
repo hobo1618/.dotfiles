@@ -83,7 +83,9 @@
     tectonic
     tldr
     texliveTeTeX
-    texlivePackages.enumitem
+    texlive.withPackages
+    (ps: [ ps.enumitem ])
+
     # tmux
     webcamoid
     yarn
