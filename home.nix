@@ -42,6 +42,7 @@
     cacert
     chatgpt-cli
     chromium
+    dig
     discord
     discordo
     docker
