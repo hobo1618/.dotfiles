@@ -200,8 +200,9 @@ in
   environment.systemPackages = with pkgs; [
     alacritty
     blueman
-    deno
     davinci-resolve
+    deno
+    dig
     fish
     gcc9
     gh
