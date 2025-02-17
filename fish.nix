@@ -11,7 +11,7 @@
       ga = "git add";
       gc = "git commit -m";
       gp = "git push";
-      obs = "cd ~/Documents/obsidian/";
+      notes = "cd ~/Documents/obsidian/";
       courses = "cd ~/Documents/askerra/content/courses/";
     };
     functions.fish_user_key_bindings = ''
