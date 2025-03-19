@@ -75,6 +75,8 @@
       ];
     })
     openshot-qt
+    libsForQt5.libopenshot
+    libsForQt5.libopenshot-audio
     pass
     pinentry-all
     poppler_utils
