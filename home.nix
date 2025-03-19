@@ -74,6 +74,7 @@
         obs-source-switcher
       ];
     })
+    openshot-qt
     pass
     pinentry-all
     poppler_utils
