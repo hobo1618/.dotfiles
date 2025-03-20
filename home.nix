@@ -2,7 +2,16 @@
 
 # Starship?
 
+#  home.packages = with pkgs; [
+#    (oldpkgs.openshot-qt)
+#  ];
+
+let
+  oldPkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-24.05.tar.gz") { };
+in
+
 {
+
   imports = [
     ./tmux.nix
     ./fish.nix
@@ -74,9 +83,10 @@
         obs-source-switcher
       ];
     })
-    openshot-qt
-    libsForQt5.libopenshot
-    libsForQt5.libopenshot-audio
+    oldPkgs.openshot-qt
+    #    openshot-qt
+    #    libsForQt5.libopenshot
+    #    libsForQt5.libopenshot-audio
     pass
     pinentry-all
     poppler_utils
