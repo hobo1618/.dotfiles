@@ -25,7 +25,10 @@
       homeConfigurations = {
         willh = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit inputs; };
+          extraSpecialArgs = {
+            inherit inputs;
+            inherit system;
+          };
           modules = [ ./home.nix ];
         };
       };
