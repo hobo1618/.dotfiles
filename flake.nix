@@ -4,11 +4,12 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
+    nixos-24-05.url = "github:NixOS/nixpkgs/nixos-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixvim.url = "github:hobo1618/nixvim";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nixos-24-05, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
