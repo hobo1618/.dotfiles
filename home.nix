@@ -2,16 +2,7 @@
 
 # Starship?
 
-#  home.packages = with pkgs; [
-#    (oldpkgs.openshot-qt)
-#  ];
-
-let
-  oldPkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-24.05.tar.gz") { };
-in
-
 {
-
   imports = [
     ./tmux.nix
     ./fish.nix
@@ -47,7 +38,12 @@ in
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs; [
+
+
+  home.packages = with pkgs; let
+    oldPkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-24.05.tar.gz") { };
+  in
+  [
     anki
     cacert
     chatgpt-cli
@@ -84,9 +80,9 @@ in
       ];
     })
     oldPkgs.openshot-qt
-    #    openshot-qt
-    #    libsForQt5.libopenshot
-    #    libsForQt5.libopenshot-audio
+    #     openshot-qt
+    #     libsForQt5.libopenshot
+    #     libsForQt5.libopenshot-audio
     pass
     pinentry-all
     poppler_utils
