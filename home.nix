@@ -2,7 +2,12 @@
 
 # Starship?
 
+let
+  # Add the nixpkgs from the 24.05 channel as a flake input
+  oldPkgs = import inputs.nixos-24-05 { inherit system; };
+in
 {
+
   imports = [
     ./tmux.nix
     ./fish.nix
@@ -38,7 +43,6 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-
 
 
 
