@@ -82,7 +82,7 @@ in
         obs-source-switcher
       ];
     })
-    # oldPkgs.openshot-qt
+    oldPkgs.openshot-qt
     # openshot-qt
     # libsForQt5.libopenshot
     # libsForQt5.libopenshot-audio
