@@ -62,6 +62,7 @@ in
     inkscape
     inputs.nixvim.packages.${pkgs.system}.default
     isync
+    kdePackages.kdenlive
     lua54Packages.luarocks
     lua54Packages.luasocket
     marp-cli
