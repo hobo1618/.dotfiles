@@ -103,6 +103,7 @@ in
       # ps.enumitem
     ]))
     # tmux
+    v4l-utils
     webcamoid
     yarn
     # Define your Fish script as an executable
