@@ -69,7 +69,19 @@ in
     open = false;
   };
 
-  systemd.services.dlm.wantedBy = [ "multi-user.target" ];
+  # systemd.services.dlm.wantedBy = [ "multi-user.target" ];
+
+
+  systemd.services.displaylink = {
+    description = "Start DisplayLink Manager";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "graphical.target" ]; # optional but recommended
+    serviceConfig = {
+      ExecStart = "/run/current-system/sw/bin/DisplayLinkManager";
+      Restart = "on-failure";
+    };
+  };
+
   systemd.services = {
     # https://github.com/NixOS/nixpkgs/issues/59603#issuecomment-1356844284
     NetworkManager-wait-online.enable = false;
