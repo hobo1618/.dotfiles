@@ -69,6 +69,7 @@ in
     open = false;
   };
 
+  systemd.services.dlm.wantedBy = [ "multi-user.target" ];
   systemd.services = {
     # https://github.com/NixOS/nixpkgs/issues/59603#issuecomment-1356844284
     NetworkManager-wait-online.enable = false;
@@ -109,7 +110,7 @@ in
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
-  services.displaylink.enable = true;
+  # services.displaylink.enable = true;
 
   services.xserver = {
     # Even though you're using Wayland, this section applies to keymaps
