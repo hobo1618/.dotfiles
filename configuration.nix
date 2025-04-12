@@ -109,6 +109,7 @@ in
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
+  services.displaylink.enable = true;
 
   services.xserver = {
     # Even though you're using Wayland, this section applies to keymaps
