@@ -75,7 +75,7 @@ in
   systemd.services.displaylink = {
     description = "Start DisplayLink Manager";
     wantedBy = [ "multi-user.target" ];
-    after = [ "graphical.target" ]; # optional but recommended
+    after = [ "multi-user.target" ]; # optional but recommended
     serviceConfig = {
       ExecStart = "/run/current-system/sw/bin/DisplayLinkManager";
       Restart = "on-failure";
