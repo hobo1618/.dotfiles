@@ -9,7 +9,6 @@ from typing import Optional
 import argparse
 import re
 
-
 api_key = os.getenv("OPENAI_API_KEY")
 
 
@@ -280,7 +279,6 @@ solutions: false
 
 {question.rationale}
 """
-
     # Write the markdown frontmatter and content to a file in the sat/ dir
     output_path = f"{base_output_path}/{new_id}.md"
     print(f"response message {question_markdown}")
@@ -288,7 +286,6 @@ solutions: false
     os.makedirs(base_output_path, exist_ok=True)
     with open(output_path, "w") as output_file:
         output_file.write(question_markdown)
-
     print(f"Response written to {output_path}")
 
 print(f"Response written to {response_data.num_questions}")
