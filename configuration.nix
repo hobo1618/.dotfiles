@@ -161,7 +161,6 @@ in
     hyprland.enable = false; # enable Hyprland
   };
 
-  programs.nvidia-settings.enable = true;
 
   environment.shells = with pkgs; [ fish ];
   users.defaultUserShell = pkgs.fish;
