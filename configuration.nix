@@ -82,18 +82,18 @@ in
 
 
 
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = true;
-    open = false; # or true if you want the open source driver (experimental)
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-
-    prime = {
-      offload.enable = true;
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
-    };
-  };
+  # hardware.nvidia = {
+  #   modesetting.enable = true;
+  #   powerManagement.enable = true;
+  #   open = false; # or true if you want the open source driver (experimental)
+  #   package = config.boot.kernelPackages.nvidiaPackages.stable;
+  #
+  #   prime = {
+  #     offload.enable = true;
+  #     intelBusId = "PCI:0:2:0";
+  #     nvidiaBusId = "PCI:1:0:0";
+  #   };
+  # };
 
   # systemd.services.dlm.wantedBy = [ "multi-user.target" ];
 
