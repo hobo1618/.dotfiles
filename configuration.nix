@@ -180,7 +180,7 @@ in
 
   environment.shells = with pkgs; [ fish ];
   users.defaultUserShell = pkgs.fish;
-  # programs.fish.enable = true;
+  programs.fish.enable = true;
 
   environment.sessionVariables = {
     # If your cursor becomes invisible
