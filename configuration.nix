@@ -35,13 +35,6 @@ in
   ];
 
 
-  # boot.blacklistedKernelModules = [
-  #   "nvidia"
-  #   "nvidia_drm"
-  #   "nvidia_modeset"
-  #   "nouveau"
-  # ];
-
   # Set initial kernel module settings
   boot.extraModprobeConfig = ''
     # exclusive_caps: Skype, Zoom, Teams etc. will only show device when actually streaming
@@ -64,6 +57,22 @@ in
   #   open = false;
   # };
 
+  hardware.opengl.enable = true;
+  hardware.opengl.driSupport32Bit = true;
+
+  hardware.nvidia =
+    {
+      modesetting.enable = true;
+      powerManagement.enable = true;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+      prime = {
+        sync.enable = true;
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
+      };
+    };
 
 
   # hardware.opengl = {
@@ -75,27 +84,26 @@ in
   # };
 
 
-  hardware = {
-    opengl = {
-      enable = true;
-      driSupport32Bit = true;
-      extraPackages = with pkgs; [
-        intel-compute-runtime
-      ];
-    };
-
-    nvidia = {
-      modesetting.enable = true;
-      powerManagement = {
-        enable = false;
-        finegrained = false;
-      };
-      open = false;
-      nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-    };
-  };
-
+  # hardware = {
+  #   opengl = {
+  #     enable = true;
+  #     driSupport32Bit = true;
+  #     extraPackages = with pkgs; [
+  #       intel-compute-runtime
+  #     ];
+  #   };
+  #   nvidia = {
+  #     modesetting.enable = true;
+  #     powerManagement = {
+  #       enable = false;
+  #       finegrained = false;
+  #     };
+  #     open = false;
+  #     nvidiaSettings = true;
+  #     package = config.boot.kernelPackages.nvidiaPackages.stable;
+  #   };
+  # };
+  #
   # systemd.services.dlm.wantedBy = [ "multi-user.target" ];
 
 
@@ -149,7 +157,7 @@ in
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   # services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
-  services.xserver.videoDrivers = [ "nvidia" "displaylink" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
   # services.displaylink.enable = true;
 
 
