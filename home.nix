@@ -101,7 +101,7 @@ in
     (scriptUtils.mkFishScript "pqs" ./scripts/process_question.fish)
     (scriptUtils.mkFishScript "tomov" ./scripts/convert-to-mov.fish)
     (scriptUtils.mkFishScript "movtomp4" ./scripts/mov-to-mp4.fish)
-    (scriptUtils.mkPythonScript "socr" ./scripts/python/scripts/sat-ocr.py)
+    # (scriptUtils.mkPythonScript "socr" ./scripts/python/scripts/sat-ocr.py)
     # (writeScriptBin "splitmedia" ''
     #   #!/usr/bin/env fish
     #   # Add any runtime dependencies if necessary
