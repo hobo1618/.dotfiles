@@ -15,9 +15,6 @@ in
       # ./nvidia.nix
     ];
 
-
-
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -44,18 +41,9 @@ in
   '';
 
   networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Opt in to flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # hardware.nvidia = {
-  #   open = false;
-  # };
 
   hardware.opengl.enable = true;
   hardware.opengl.driSupport32Bit = true;
@@ -77,39 +65,6 @@ in
     };
 
   hardware.nvidia-container-toolkit.enable = true;
-
-
-  # hardware.opengl = {
-  #   enable = true;
-  #   driSupport32Bit = true;
-  #   extraPackages = with pkgs; [
-  #     intel-compute-runtime
-  #   ];
-  # };
-
-
-  # hardware = {
-  #   opengl = {
-  #     enable = true;
-  #     driSupport32Bit = true;
-  #     extraPackages = with pkgs; [
-  #       intel-compute-runtime
-  #     ];
-  #   };
-  #   nvidia = {
-  #     modesetting.enable = true;
-  #     powerManagement = {
-  #       enable = false;
-  #       finegrained = false;
-  #     };
-  #     open = false;
-  #     nvidiaSettings = true;
-  #     package = config.boot.kernelPackages.nvidiaPackages.stable;
-  #   };
-  # };
-  #
-  # systemd.services.dlm.wantedBy = [ "multi-user.target" ];
-
 
   systemd.services.displaylink = {
     description = "Start DisplayLink Manager";
@@ -140,11 +95,6 @@ in
   };
 
 
-  # systemd.tmpfiles.rules = [
-  #   "d /var/lib/docker/volumes/falkordb_data 0755 root docker - -"
-  #   "f /var/run/docker.sock 0660 root docker - -"
-  # ];
-
   environment.etc."keyd/default.conf".text = keydConfig;
 
   # Enable networking
@@ -160,27 +110,21 @@ in
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-  # services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
   services.xserver.videoDrivers = [ "nvidia" "displaylink" ];
-  # services.displaylink.enable = true;
-
-
 
   services.xserver = {
-    # Even though you're using Wayland, this section applies to keymaps
     xkb.layout = "us"; # or your preferred layout
     xkb.options = "ctrl:nocaps";
   };
 
-
   programs = {
-    hyprland.enable = false; # enable Hyprland
+    hyprland.enable = false;
   };
 
 
-  environment.shells = with pkgs; [ fish ];
+  # environment.shells = with pkgs; [ fish ];
   users.defaultUserShell = pkgs.fish;
-  programs.fish.enable = true;
+  # programs.fish.enable = true;
 
   environment.sessionVariables = {
     # If your cursor becomes invisible
@@ -293,28 +237,8 @@ in
     zoom-us
   ];
 
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
   services.keyd.enable = true;
   services.blueman.enable = true;
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
