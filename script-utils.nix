@@ -14,10 +14,10 @@ let
           pkgs.python312Packages.openai
           pkgs.python312Packages.pydantic
         ];
-      } ''
-      ${builtins.readFile path}
-    '';
+      }
+      (builtins.readFile path);
+
 in
 {
   inherit mkFishScript mkPythonScript;
-}
+} 
