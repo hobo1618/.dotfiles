@@ -60,40 +60,42 @@ in
   # Opt in to flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  hardware.opengl = {
-    enable = true;
-    driSupport32Bit = true;
-    extraPackages = with pkgs; [
-      intel-compute-runtime
-      # rocmPackages_5.clr.icd
-      # rocmPackages_5.clr
-      # rocmPackages_5.rocminfo
-      # rocmPackages_5.rocm-runtime
-      # vulkan-icd-loader
-      # vulkan-tools
-      # vulkan-validation-layers
-      # vulkaninfo
-    ];
-  };
-
   # hardware.nvidia = {
   #   open = false;
   # };
 
 
 
-  # hardware.nvidia = {
-  #   modesetting.enable = true;
-  #   powerManagement.enable = true;
-  #   open = false; # or true if you want the open source driver (experimental)
-  #   package = config.boot.kernelPackages.nvidiaPackages.stable;
-  #
-  #   prime = {
-  #     offload.enable = true;
-  #     intelBusId = "PCI:0:2:0";
-  #     nvidiaBusId = "PCI:1:0:0";
-  #   };
+  # hardware.opengl = {
+  #   enable = true;
+  #   driSupport32Bit = true;
+  #   extraPackages = with pkgs; [
+  #     intel-compute-runtime
+  #   ];
   # };
+
+
+  hardware = {
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+      extraPackages = with pkgs; [
+        intel-compute-runtime
+      ];
+    };
+
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement = {
+        enable = false;
+        finegrained = false;
+      };
+      open = false;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
+  };
 
   # systemd.services.dlm.wantedBy = [ "multi-user.target" ];
 
@@ -147,9 +149,11 @@ in
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
-  # services.xserver.videoDrivers = [ "nvidia" "displaylink" "modesetting" ];
+  # services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
+  services.xserver.videoDrivers = [ "nvidia" "displaylink" "modesetting" ];
   # services.displaylink.enable = true;
+
+
 
   services.xserver = {
     # Even though you're using Wayland, this section applies to keymaps
@@ -173,13 +177,6 @@ in
     # Hint electron apps to use wayland
     NIXOS_OZONE_WL = "1";
   };
-
-  # hardware.opengl.enable = true;
-
-
-
-
-
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
