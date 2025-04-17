@@ -101,45 +101,17 @@ in
     (scriptUtils.mkFishScript "pqs" ./scripts/process_question.fish)
     (scriptUtils.mkFishScript "tomov" ./scripts/convert-to-mov.fish)
     (scriptUtils.mkFishScript "movtomp4" ./scripts/mov-to-mp4.fish)
-    # (scriptUtils.mkPythonScript "socr" ./scripts/python/scripts/sat-ocr.py)
-    # (writeScriptBin "splitmedia" ''
-    #   #!/usr/bin/env fish
-    #   # Add any runtime dependencies if necessary
-    #   
-    #   # Include the Fish script text directly
-    #   ${builtins.readFile ./scripts/splitmedia.fish}
-    # '')
-    # (writeScriptBin "pqs" ''
-    #   #!/usr/bin/env fish
-    #   # Add any runtime dependencies if necessary
-    #   
-    #   # Include the Fish script text directly
-    #   ${builtins.readFile ./scripts/process_question.fish}
-    # '')
-    # (writeScriptBin "tomov" ''
-    #   #!/usr/bin/env fish
-    #   # Add any runtime dependencies if necessary
-    #   
-    #   # Include the Fish script text directly
-    #   ${builtins.readFile ./scripts/convert-to-mov.fish}
-    # '')
-    # (writeScriptBin "movtomp4" ''
-    #   #!/usr/bin/env fish
-    #   # Add any runtime dependencies if necessary
-    #   
-    #   # Include the Fish script text directly
-    #   ${builtins.readFile ./scripts/mov-to-mp4.fish}
-    # '')
+    (scriptUtils.mkPythonScript "socr" ./scripts/python/scripts/sat-ocr.py)
 
-    (writers.writePython3Bin "socr"
-      {
-        libraries = [
-          python312Packages.openai
-          python312Packages.pydantic
-        ];
-      } ''
-      ${builtins.readFile ./scripts/python/scripts/sat-ocr.py}''
-    )
+    # (writers.writePython3Bin "socr"
+    #   {
+    #     libraries = [
+    #       python312Packages.openai
+    #       python312Packages.pydantic
+    #     ];
+    #   } ''
+    #   ${builtins.readFile ./scripts/python/scripts/sat-ocr.py}''
+    # )
   ];
 
   programs.ripgrep.enable = true;
