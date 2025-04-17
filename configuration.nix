@@ -64,15 +64,19 @@ in
     {
       modesetting.enable = true;
       powerManagement.enable = true;
+      powerManagement.finegrained = true;
       nvidiaSettings = true;
+      open = false;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
 
       prime = {
-        sync.enable = true;
+        offload.enable = true;
         intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
       };
     };
+
+  hardware.nvidia-container-toolkit.enable = true;
 
 
   # hardware.opengl = {
@@ -176,7 +180,7 @@ in
 
   environment.shells = with pkgs; [ fish ];
   users.defaultUserShell = pkgs.fish;
-  programs.fish.enable = true;
+  # programs.fish.enable = true;
 
   environment.sessionVariables = {
     # If your cursor becomes invisible
