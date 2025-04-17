@@ -35,12 +35,12 @@ in
   ];
 
 
-  boot.blacklistedKernelModules = [
-    "nvidia"
-    "nvidia_drm"
-    "nvidia_modeset"
-    "nouveau"
-  ];
+  # boot.blacklistedKernelModules = [
+  #   "nvidia"
+  #   "nvidia_drm"
+  #   "nvidia_modeset"
+  #   "nouveau"
+  # ];
 
   # Set initial kernel module settings
   boot.extraModprobeConfig = ''
