@@ -15,6 +15,9 @@ in
       # ./nvidia.nix
     ];
 
+
+
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -29,6 +32,14 @@ in
     "v4l2loopback"
     # Virtual Microphone, built-in
     "snd-aloop"
+  ];
+
+
+  boot.blacklistedKernelModules = [
+    "nvidia"
+    "nvidia_drm"
+    "nvidia_modeset"
+    "nouveau"
   ];
 
   # Set initial kernel module settings
