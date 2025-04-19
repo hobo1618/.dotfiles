@@ -1,6 +1,8 @@
 { pkgs, config, ... }:
+
 let
-  autoGpuSwitch = ''
+  # ①  Build the script inside the Nix store
+  autoGpuSwitch = pkgs.writeShellScript "auto-gpu-switch" ''
     #!/usr/bin/env bash
     INTERNAL="eDP-1"
     EXTERNAL="DP-4"
@@ -13,41 +15,36 @@ let
   '';
 in
 {
+  ##############################################################################
+  #  NVIDIA + hybrid  (unchanged)
+  ##############################################################################
   services.xserver.videoDrivers = [ "nvidia" "displaylink" ];
-
   hardware.opengl.enable = true;
   hardware.opengl.driSupport32Bit = true;
 
-  hardware.nvidia =
-    {
-      modesetting.enable = true;
-      powerManagement.enable = true;
-      powerManagement.finegrained = true;
-      nvidiaSettings = true;
-      open = false;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-
-      prime = {
-        offload.enable = true;
-        intelBusId = "PCI:0:2:0";
-        nvidiaBusId = "PCI:1:0:0";
-      };
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement = {
+      enable = true;
+      finegrained = true;
     };
-
-  hardware.nvidia-container-toolkit.enable = true;
-
-  services.supergfxd.enable = true; # << built‑in service
-
-  # helper script (same as before but calls supergfxctl)
-  ############  make the file appear at *exactly* /etc/auto-gpu-switch.sh
-  environment.etc."auto-gpu-switch.sh" = {
-    text = autoGpuSwitch;
-    mode = "0755"; # <- executable!
+    prime.offload.enable = true; # assertion satisfied
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  ############  udev rule that calls it
+  services.supergfxd.enable = true;
+
+  ##############################################################################
+  #  ②  (optional) also copy the script to /etc so you can inspect it
+  ##############################################################################
+  environment.etc."auto-gpu-switch.sh".source = autoGpuSwitch;
+
+  ##############################################################################
+  #  ③  udev rule calls the *store* path, not /etc/…
+  ##############################################################################
   services.udev.extraRules = ''
     ACTION=="change", SUBSYSTEM=="drm", ENV{HOTPLUG}=="1", \
-      RUN+="/etc/auto-gpu-switch.sh"
+      RUN+="${autoGpuSwitch}"
   '';
 }
