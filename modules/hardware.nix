@@ -15,11 +15,11 @@
       open = false;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
 
-      # prime = {
-      #   offload.enable = true;
-      #   intelBusId = "PCI:0:2:0";
-      #   nvidiaBusId = "PCI:1:0:0";
-      # };
+      prime = {
+        offload.enable = true;
+        #   intelBusId = "PCI:0:2:0";
+        #   nvidiaBusId = "PCI:1:0:0";
+      };
     };
 
   hardware.nvidia-container-toolkit.enable = true;
