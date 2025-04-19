@@ -33,21 +33,23 @@
     };
   };
 
-  environment.etc."optimus-auto-switch.sh".text = ''
-    #!/usr/bin/env bash
-    INTERNAL="eDP-1"     # laptop panel (check `xrandr --query`)
-    EXTERNAL="DP-4"      # your Dell DisplayPort output
+  environment.etc."optimus-auto-switch.sh" = {
+    mode = "0755"; # make the file executable
+    text = ''
+      #!/usr/bin/env bash
+      INTERNAL="eDP-1"     # laptop panel   (adjust with `xrandr --query`)
+      EXTERNAL="DP-4"      # Dell monitor   (adjust too)
 
-    # Give the kernel a moment to register the hot‑plug event
-    sleep 2
+      # Give the kernel a moment to finish the hot‑plug event
+      sleep 2
 
-    if ${pkgs.xorg.xrandr}/bin/xrandr --query | grep -q "^${EXTERNAL} connected"; then
-        ${pkgs.optimus-manager}/bin/optimus-manager --switch nvidia   --no-confirm
-    else
-        ${pkgs.optimus-manager}/bin/optimus-manager --switch hybrid   --no-confirm
-    fi
-  '';
-
+      if ${pkgs.xorg.xrandr}/bin/xrandr --query | grep -q "^$EXTERNAL connected"; then
+          ${pkgs.optimus-manager}/bin/optimus-manager --switch nvidia  --no-confirm
+      else
+          ${pkgs.optimus-manager}/bin/optimus-manager --switch hybrid  --no-confirm
+      fi
+    '';
+  };
 
   services.udev.extraRules = ''
     ACTION=="change", SUBSYSTEM=="drm", ENV{HOTPLUG}=="1", \
