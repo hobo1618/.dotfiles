@@ -1,5 +1,17 @@
 { pkgs, config, ... }:
-
+let
+  autoGpuSwitch = ''
+    #!/usr/bin/env bash
+    INTERNAL="eDP-1"
+    EXTERNAL="DP-4"
+    sleep 2
+    if ${pkgs.xorg.xrandr}/bin/xrandr --query | grep -q "^$EXTERNAL connected"; then
+        ${pkgs.supergfxctl}/bin/supergfxctl -m nvidia
+    else
+        ${pkgs.supergfxctl}/bin/supergfxctl -m hybrid
+    fi
+  '';
+in
 {
   services.xserver.videoDrivers = [ "nvidia" "displaylink" ];
 
@@ -27,22 +39,13 @@
   services.supergfxd.enable = true; # << built‑in service
 
   # helper script (same as before but calls supergfxctl)
-  environment.etc."auto‑gpu‑switch.sh" = {
-    mode = "0755";
-    text = ''
-      #!/usr/bin/env bash
-      INTERNAL="eDP-1"
-      EXTERNAL="DP-4"
-      sleep 2
-      if ${pkgs.xorg.xrandr}/bin/xrandr --query | grep -q "^$EXTERNAL connected"; then
-          ${pkgs.supergfxctl}/bin/supergfxctl -m nvidia
-      else
-          ${pkgs.supergfxctl}/bin/supergfxctl -m hybrid   # intel primary
-      fi
-    '';
+  ############  make the file appear at *exactly* /etc/auto-gpu-switch.sh
+  environment.etc."auto-gpu-switch.sh" = {
+    text = autoGpuSwitch;
+    mode = "0755"; # <- executable!
   };
 
-  # udev rule
+  ############  udev rule that calls it
   services.udev.extraRules = ''
     ACTION=="change", SUBSYSTEM=="drm", ENV{HOTPLUG}=="1", \
       RUN+="/etc/auto-gpu-switch.sh"
