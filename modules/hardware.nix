@@ -1,6 +1,8 @@
 { config, ... }:
 
 {
+  services.xserver.videoDrivers = [ "nvidia" "displaylink" ];
+
   hardware.opengl.enable = true;
   hardware.opengl.driSupport32Bit = true;
 
@@ -21,4 +23,5 @@
     };
 
   hardware.nvidia-container-toolkit.enable = true;
+
 }
