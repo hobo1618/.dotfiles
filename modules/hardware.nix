@@ -28,7 +28,11 @@ in
       enable = true;
       finegrained = true;
     };
-    prime.offload.enable = true; # assertion satisfied
+    prime = {
+      offload.enable = true;
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
