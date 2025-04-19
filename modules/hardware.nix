@@ -24,35 +24,27 @@
 
   hardware.nvidia-container-toolkit.enable = true;
 
-  programs.optimus-manager.enable = true;
+  services.supergfxd.enable = true; # << built‑in service
 
-
-  programs.optimus-manager.settings = {
-    optimus = {
-      startup_mode = "hybrid"; # Intel primary after every boot
-    };
-  };
-
-  environment.etc."optimus-auto-switch.sh" = {
-    mode = "0755"; # make the file executable
+  # helper script (same as before but calls supergfxctl)
+  environment.etc."auto‑gpu‑switch.sh" = {
+    mode = "0755";
     text = ''
       #!/usr/bin/env bash
-      INTERNAL="eDP-1"     # laptop panel   (adjust with `xrandr --query`)
-      EXTERNAL="DP-4"      # Dell monitor   (adjust too)
-
-      # Give the kernel a moment to finish the hot‑plug event
+      INTERNAL="eDP-1"
+      EXTERNAL="DP-4"
       sleep 2
-
       if ${pkgs.xorg.xrandr}/bin/xrandr --query | grep -q "^$EXTERNAL connected"; then
-          ${pkgs.optimus-manager}/bin/optimus-manager --switch nvidia  --no-confirm
+          ${pkgs.supergfxctl}/bin/supergfxctl -m nvidia
       else
-          ${pkgs.optimus-manager}/bin/optimus-manager --switch hybrid  --no-confirm
+          ${pkgs.supergfxctl}/bin/supergfxctl -m hybrid   # intel primary
       fi
     '';
   };
 
+  # udev rule
   services.udev.extraRules = ''
     ACTION=="change", SUBSYSTEM=="drm", ENV{HOTPLUG}=="1", \
-      RUN+="/etc/optimus-auto-switch.sh"
+      RUN+="/etc/auto-gpu-switch.sh"
   '';
 }
