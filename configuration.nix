@@ -68,6 +68,7 @@ in
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.videoDrivers = [ "nvidia" "displaylink" ];
 
   services.xserver = {
     xkb.layout = "us"; # or your preferred layout
