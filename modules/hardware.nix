@@ -6,10 +6,10 @@
 
   hardware.nvidia = {
     modesetting.enable = true;
-    powerManagement = {
-      enable = true;
-      # finegrained = true;
-    };
+    # powerManagement = {
+    #   enable = true;
+    # finegrained = true;
+    # };
     prime = {
       sync.enable = true;
       intelBusId = "PCI:0:2:0";
