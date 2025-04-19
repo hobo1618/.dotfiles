@@ -1,4 +1,4 @@
-{ config, ... }:
+{ pkgs, config, ... }:
 
 {
   services.xserver.videoDrivers = [ "nvidia" "displaylink" ];
@@ -15,15 +15,42 @@
       open = false;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
 
-      prime = {
-        offload.enable = true;
-        intelBusId = "PCI:0:2:0";
-        nvidiaBusId = "PCI:1:0:0";
-      };
+      # prime = {
+      #   offload.enable = true;
+      #   intelBusId = "PCI:0:2:0";
+      #   nvidiaBusId = "PCI:1:0:0";
+      # };
     };
 
   hardware.nvidia-container-toolkit.enable = true;
 
   programs.optimus-manager.enable = true;
 
+
+  programs.optimus-manager.settings = {
+    optimus = {
+      startup_mode = "hybrid"; # Intel primary after every boot
+    };
+  };
+
+  environment.etc."optimus-auto-switch.sh".text = ''
+    #!/usr/bin/env bash
+    INTERNAL="eDP-1"     # laptop panel (check `xrandr --query`)
+    EXTERNAL="DP-4"      # your Dell DisplayPort output
+
+    # Give the kernel a moment to register the hot‑plug event
+    sleep 2
+
+    if ${pkgs.xorg.xrandr}/bin/xrandr --query | grep -q "^${EXTERNAL} connected"; then
+        ${pkgs.optimus-manager}/bin/optimus-manager --switch nvidia   --no-confirm
+    else
+        ${pkgs.optimus-manager}/bin/optimus-manager --switch hybrid   --no-confirm
+    fi
+  '';
+
+
+  services.udev.extraRules = ''
+    ACTION=="change", SUBSYSTEM=="drm", ENV{HOTPLUG}=="1", \
+      RUN+="/etc/optimus-auto-switch.sh"
+  '';
 }
