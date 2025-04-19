@@ -24,4 +24,6 @@
 
   hardware.nvidia-container-toolkit.enable = true;
 
+  programs.optimus-manager.enable = true;
+
 }
