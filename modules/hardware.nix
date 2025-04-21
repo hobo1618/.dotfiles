@@ -4,20 +4,36 @@
   hardware.opengl.enable = true;
   hardware.opengl.driSupport32Bit = true;
 
+  # DEDICATED GPU
+  # hardware.nvidia = {
+  #   modesetting.enable = true;
+  #   powerManagement = {
+  #     enable = true;
+  #     finegrained = true;
+  #   };
+  #   prime = {
+  #     sync.enable = true;
+  #     intelBusId = "PCI:0:2:0";
+  #     nvidiaBusId = "PCI:1:0:0";
+  #   };
+  #   nvidiaSettings = true;
+  #   package = config.boot.kernelPackages.nvidiaPackages.stable;
+  # };
+
+  # HYRBID
   hardware.nvidia = {
     modesetting.enable = true;
-    # powerManagement = {
-    #   enable = true;
-    # finegrained = true;
-    # };
+    powerManagement = {
+      enable = true;
+      finegrained = true;
+    };
     prime = {
-      sync.enable = true;
+      offload.enable = true;
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
     };
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
-
 
 }
