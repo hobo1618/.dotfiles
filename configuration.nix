@@ -161,6 +161,7 @@ in
     ghostscript
     git
     gnomeExtensions.paperwm
+    gnomeExtensions.eye-on-cursor
     gnome-tweaks
     gnumake
     go
