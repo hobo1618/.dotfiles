@@ -55,7 +55,6 @@ in
     inkscape
     inputs.nixvim.packages.${pkgs.system}.default
     isync
-    kazam
     kdePackages.kdenlive
     lua54Packages.luarocks
     lua54Packages.luasocket
@@ -85,6 +84,7 @@ in
     reaper
     rubber
     screenkey
+    simplescreenrecorder
     sioyek
     slop
     tectonic
