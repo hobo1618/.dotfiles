@@ -9,7 +9,7 @@
     modesetting.enable = true;
     powerManagement = {
       enable = true;
-      finegrained = true;
+      # finegrained = true; # DELETE?
     };
     prime = {
       sync.enable = true;
