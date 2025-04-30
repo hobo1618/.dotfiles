@@ -144,7 +144,17 @@ in
   # nixpkgs.config.nvidia.acceptLicense = true;
 
 
-  fonts.packages = [ ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+  fonts.packages = [
+    (pkgs.stdenv.mkDerivation {
+      pname = "brockmann-fonts";
+      version = "1.0";
+      src = /home/willh/.local/share/fonts;
+      installPhase = ''
+        mkdir -p $out/share/fonts/opentype
+        cp *.otf $out/share/fonts/opentype/
+      '';
+    })
+  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
 
   # List packages installed in system profile. To search, run:
@@ -188,6 +198,7 @@ in
     python313
     redis
     sqlite
+
     unzip
     vim
     wget
