@@ -6,6 +6,15 @@
 let
   keyd = pkgs.callPackage ./keyd { };
   keydConfig = builtins.readFile ./keyd/keymaps.conf;
+  brockmannFonts = pkgs.stdenv.mkDerivation {
+    pname = "brockmann-fonts";
+    version = "1.0";
+    src = ./fonts;
+    installPhase = ''
+      mkdir -p $out/share/fonts/opentype
+      cp *.otf $out/share/fonts/opentype/
+    '';
+  };
 in
 {
   imports =
@@ -145,15 +154,7 @@ in
 
 
   fonts.packages = [
-    (pkgs.stdenv.mkDerivation {
-      pname = "brockmann-fonts";
-      version = "1.0";
-      src = /home/willh/.local/share/fonts;
-      installPhase = ''
-        mkdir -p $out/share/fonts/opentype
-        cp *.otf $out/share/fonts/opentype/
-      '';
-    })
+    brockmannFonts
   ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
 
