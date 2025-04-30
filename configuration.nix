@@ -6,17 +6,6 @@
 let
   keyd = pkgs.callPackage ./keyd { };
   keydConfig = builtins.readFile ./keyd/keymaps.conf;
-  brockmannFonts = pkgs.stdenv.mkDerivation {
-    pname = "brockmann-fonts";
-    version = "1.0";
-    src = ./fonts;
-    dontUnpack = true;
-
-    installPhase = ''
-      mkdir -p $out/share/fonts/opentype
-      install -Dm644 $src/*.otf -t $out/share/fonts/opentype/
-    '';
-  };
 in
 {
   imports =
@@ -155,17 +144,8 @@ in
   # nixpkgs.config.nvidia.acceptLicense = true;
 
 
-  # fonts.packages = [
-  #   brockmannFonts
-  # ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+  fonts.packages = [ ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
-  fonts = {
-    enableDefaultPackages = true;
-    fontDir.enable = true;
-    packages = [
-      brockmannFonts
-    ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
-  };
 
 
   # List packages installed in system profile. To search, run:
@@ -209,7 +189,6 @@ in
     python313
     redis
     sqlite
-
     unzip
     vim
     wget
