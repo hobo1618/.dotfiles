@@ -10,6 +10,7 @@ let
     pname = "brockmann-fonts";
     version = "1.0";
     src = ./fonts;
+    dontUnpack = true;
     installPhase = ''
       mkdir -p $out/share/fonts/opentype
       cp *.otf $out/share/fonts/opentype/
