@@ -155,9 +155,17 @@ in
   # nixpkgs.config.nvidia.acceptLicense = true;
 
 
-  fonts.packages = [
-    brockmannFonts
-  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+  # fonts.packages = [
+  #   brockmannFonts
+  # ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+
+  fonts = {
+    enableDefaultPackages = true;
+    fontDir.enable = true;
+    packages = [
+      brockmannFonts
+    ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+  };
 
 
   # List packages installed in system profile. To search, run:
