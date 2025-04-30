@@ -11,9 +11,10 @@ let
     version = "1.0";
     src = ./fonts;
     dontUnpack = true;
+
     installPhase = ''
       mkdir -p $out/share/fonts/opentype
-      cp *.otf $out/share/fonts/opentype/
+      install -Dm644 $src/*.otf -t $out/share/fonts/opentype/
     '';
   };
 in
