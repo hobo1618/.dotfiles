@@ -13,6 +13,9 @@
       gp = "git push";
       notes = "cd ~/Documents/obsidian/";
       courses = "cd ~/Documents/askerra/content/courses/";
+      topics = "cd ~/Documents/askerra/content/topics/";
+      students = "cd ~/Documents/askerra/private-students/";
+      assets = "cd ~/Documents/askerra/content/assets/";
     };
     functions.fish_user_key_bindings = ''
       fish_default_key_bindings
@@ -24,7 +27,7 @@
       set -x GNUPGHOME ~/.gnupg
       set -x PINENTRY_USER_DATA "USE_CURSES=1"
       set -x GPG_TTY (tty)
-      set -x EDITOR vim
+      # set -x EDITOR vim
       source ~/.dotfiles/.secrets.fish
     '';
   };
