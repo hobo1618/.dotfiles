@@ -157,6 +157,9 @@ in
       set -g @clipboard 'xclip'
       set -g @yank_selection 'clipboard'
 
+      # Make sure tmux grabs these vars from the first graphical client that attaches
+      set -g update-environment "DISPLAY XAUTHORITY"
+
       # Escape turns on copy mode
       bind Escape copy-mode
 
