@@ -153,6 +153,10 @@ in
       bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
       bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
 
+      # set system clipboard
+      set -g @clipboard 'xclip'
+      set -g @yank_selection 'clipboard'
+
       # Escape turns on copy mode
       bind Escape copy-mode
 
