@@ -13,7 +13,7 @@
       gp = "git push";
       notes = "cd ~/Documents/obsidian/";
       courses = "cd ~/Documents/askerra/content/courses/";
-      topics = "cd ~/Documents/askerra/content/topics/";
+      projects = "cd ~/Documents/askerra/content/projects/";
       students = "cd ~/Documents/askerra/private-students/";
       assets = "cd ~/Documents/askerra/content/assets/";
     };
