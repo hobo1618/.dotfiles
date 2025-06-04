@@ -81,6 +81,7 @@ in
     pinentry-all
     poppler_utils
     quickemu
+    rclone
     reaper
     rubber
     screenkey
