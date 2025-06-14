@@ -47,7 +47,7 @@ in
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
-    ankiWithQt
+    anki
     cacert
     chatgpt-cli
     chromium
