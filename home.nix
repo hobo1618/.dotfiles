@@ -6,6 +6,11 @@ let
   # Add the nixpkgs from the 24.05 channel as a flake input
   oldPkgs = import inputs.nixos-24-05 { inherit system; };
   scriptUtils = import ./script-utils.nix { inherit pkgs; };
+  ankiWrapped = pkgs.writeShellScriptBin "anki" ''
+    export QT_OPENGL=software
+    export QT_PLUGIN_PATH="${pkgs.qt5.qtbase.bin}/lib/qt-5/plugins"
+    exec ${pkgs.anki}/bin/anki "$@"
+  '';
 in
 {
 
@@ -40,7 +45,7 @@ in
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
-    anki
+    ankiWrapped
     cacert
     chatgpt-cli
     chromium
