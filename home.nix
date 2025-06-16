@@ -111,6 +111,7 @@ in
     (scriptUtils.mkFishScript "splitmedia" ./scripts/splitmedia.fish)
     (scriptUtils.mkFishScript "pqs" ./scripts/process_question.fish)
     (scriptUtils.mkFishScript "tomov" ./scripts/convert-to-mov.fish)
+    (scriptUtils.mkFishScript "toggle-darkmode" ./scripts/splitmedia.fish)
     (scriptUtils.mkFishScript "movtomp4" ./scripts/mov-to-mp4.fish)
     (scriptUtils.mkPythonScript "socr" ./scripts/python/scripts/sat-ocr.py)
 
