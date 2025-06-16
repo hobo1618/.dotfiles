@@ -10,3 +10,6 @@ function toggle-darkmode
     echo "Switched to Dark Mode"
   end
 end
+
+
+toggle-darkmode 
