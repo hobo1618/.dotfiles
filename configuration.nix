@@ -137,7 +137,7 @@ in
   # Install firefox.
   programs.firefox = {
     enable = true;
-    package = with pkgs; (firefox.override { extraNativeMessagingHosts = [ passff-host ]; });
+    # package = with pkgs; (firefox.override { extraNativeMessagingHosts = [ passff-host ]; });
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -176,6 +176,7 @@ in
     nodePackages.vercel
     nix-prefetch-github
     nushell
+    passff-host
     parted
     pciutils
     pipewire
