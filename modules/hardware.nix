@@ -1,6 +1,7 @@
 { pkgs, config, ... }:
 {
-  services.xserver.videoDrivers = [ "nvidia" "displaylink" ];
+  # services.xserver.videoDrivers = [ "nvidia" "displaylink" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware.opengl.enable = true;
   hardware.opengl.driSupport32Bit = true;
 

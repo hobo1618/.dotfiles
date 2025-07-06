@@ -24,15 +24,15 @@ in
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 
-  systemd.services.displaylink = {
-    description = "Start DisplayLink Manager";
-    wantedBy = [ "multi-user.target" ];
-    after = [ "multi-user.target" ]; # optional but recommended
-    serviceConfig = {
-      ExecStart = "/run/current-system/sw/bin/DisplayLinkManager";
-      Restart = "on-failure";
-    };
-  };
+  # systemd.services.displaylink = {
+  #   description = "Start DisplayLink Manager";
+  #   wantedBy = [ "multi-user.target" ];
+  #   after = [ "multi-user.target" ]; # optional but recommended
+  #   serviceConfig = {
+  #     ExecStart = "/run/current-system/sw/bin/DisplayLinkManager";
+  #     Restart = "on-failure";
+  #   };
+  # };
 
   systemd.services = {
     # https://github.com/NixOS/nixpkgs/issues/59603#issuecomment-1356844284
@@ -155,7 +155,7 @@ in
     blueman
     davinci-resolve
     deno
-    displaylink
+    # displaylink
     fish
     gcc9
     gh
