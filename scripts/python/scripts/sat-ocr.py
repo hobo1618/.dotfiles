@@ -287,5 +287,4 @@ solutions: false
     with open(output_path, "w") as output_file:
         output_file.write(question_markdown)
     print(f"Response written to {output_path}")
-
 print(f"Response written to {response_data.num_questions}")

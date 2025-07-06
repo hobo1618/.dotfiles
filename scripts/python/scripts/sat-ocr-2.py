@@ -7,7 +7,6 @@ from pydantic import BaseModel
 from enum import Enum
 from typing import Optional
 import argparse
-import re
 
 
 api_key = os.getenv("OPENAI_API_KEY")
@@ -92,69 +91,6 @@ class Questions(BaseModel):
     num_questions: int
 
 
-pattern = r"^(\d{4})-(\d{2})-(US|INT|NA)-(\d+)-(F|R1|RL|RU|M1|ML|MU|MNA|RNA)-(\d{2})$"
-
-
-def parse_filename(filename: str):
-    print(f"Filename: {filename}")
-    # Define the regex pattern for the SAT filename format
-    match = re.match(pattern, filename)
-
-    if not match:
-        return {
-            "year": None,
-            "month": None,
-            "administered": None,
-            "version": None,
-            "module": None,
-            "test": None,
-            "test_id": None,
-            "question_number": None,
-        }
-
-    year, month, region, version, module_code, question_number = match.groups()
-
-    # Map module codes to meaningful values
-    module_mapping = {
-        "F": Module.STANDARD.value,
-        "R1": Module.STANDARD.value,
-        "RL": Module.LOWER.value,
-        "RU": Module.UPPER.value,
-        "M1": Module.STANDARD.value,
-        "ML": Module.LOWER.value,
-        "MU": Module.UPPER.value,
-        "MNA": Module.STANDARD.value,
-        "RNA": Module.STANDARD.value,
-    }
-
-    test_mapping = {
-        "F": Test.FULL.value,
-        "R1": Test.READING.value,
-        "RL": Test.READING.value,
-        "RU": Test.READING.value,
-        "M1": Test.MATH.value,
-        "ML": Test.MATH.value,
-        "MU": Test.MATH.value,
-        "MNA": Test.MATH.value,
-        "RNA": Test.READING.value,
-    }
-
-    module = module_mapping.get(module_code, "UNKNOWN")
-    test = test_mapping.get(module_code, "UNKNOWN")
-    administered = Administered[region].value
-
-    return {
-        "year": int(year),
-        "month": int(month),
-        "administered": administered,
-        "version": int(version),
-        "module": module,
-        "test": test,
-        "test_id": f"{year}-{month}-{region}-{version}",
-        "question_number": question_number,
-    }
-
-
 # Function to encode an image
 def encode_image(image_path):
     with open(image_path, "rb") as image_file:
@@ -192,9 +128,19 @@ base_output_path = "/home/willh/.dotfiles/scripts/python/questions/extracted/"
 
 filename = get_filename(image_path)
 
-parsed_data = parse_filename(filename)
+parsed_data = {
+    "year": None,
+    "month": None,
+    "administered": None,
+    "version": None,
+    "module": None,
+    "test": "math",
+    "test_id": None,
+    "question_number": None,
+}
 
-test = parsed_data["test"].lower() if parsed_data["test"] else "math"
+test = parsed_data["test"]
+
 
 system_prompt_path = f"{base_prompt_path}/{test}.md"
 
