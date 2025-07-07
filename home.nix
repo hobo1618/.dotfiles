@@ -50,6 +50,7 @@ in
 
   home.packages = with pkgs; [
     ankiWrapped
+    anytype
     cacert
     chatgpt-cli
     chromium
