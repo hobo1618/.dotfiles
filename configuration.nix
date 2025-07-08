@@ -123,6 +123,13 @@ in
     ];
   };
 
+  users.users.guest = {
+    isNormalUser = true;
+    description = "Guest Repair";
+    extraGroups = [ "networkmanager" ]; # no sudo or docker
+    password = "repair123"; # or better, set hashedPassword
+  };
+
   virtualisation.docker = {
     enable = true;
     #     daemon.settings = {
