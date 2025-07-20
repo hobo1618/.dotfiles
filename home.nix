@@ -104,6 +104,7 @@ in
       # ps.enumitem
     ]))
     # tmux
+    vlc
     v4l-utils
     webcamoid
     yarn
